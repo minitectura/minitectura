@@ -10,30 +10,28 @@
       align-items: center;
       height: 100vh;
       margin: 0;
-      background: #fff; /* cambia a negro si quieres */
+      background: #fff;
     }
 
     img.clickable {
       border: 0;
       cursor: url('cursor.png') 16 16, auto;
-      width: 1000px;         /* tamaño base en escritorio */
-      max-width: 60vw;      /* en móvil, no más del 60% del ancho */
+      width: 1000px;       /* tamaño grande en escritorio */
+      max-width: 90vw;     /* se ajusta en móviles */
       height: auto;
-      transition: transform 0.3s ease; /* transición suave */
+      transition: transform 0.3s ease;
+      display: block;
+      margin: 0 auto;
     }
 
     img.clickable:hover {
-      transform: scale(1.1); /* aumenta 10% al pasar el cursor */
+      transform: scale(1.02); /* pequeño efecto al pasar el cursor */
     }
 
     @media (max-width: 600px) {
       img.clickable {
-        width: 60vw;        /* en móviles */
-        max-width: 250px;
-      }
-
-      img.clickable:hover {
-        transform: scale(1.05); /* un poquito menos en móvil */
+        width: 90vw;       /* ocupa casi todo el ancho en móviles */
+        max-width: 350px;  /* no demasiado grande en móviles */
       }
     }
   </style>
@@ -44,4 +42,3 @@
   </a>
 </body>
 </html>
-
