@@ -4,12 +4,24 @@
   <meta charset="UTF-8">
   <title>Mini-tectura</title>
   <style>
+    /* Centrar contenido en toda la pantalla */
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh; /* altura completa */
+      margin: 0;
+      background: #fff; /* opcional */
+    }
+
     img.clickable {
       border: 0;
-      max-width: 100%;
-      height: auto;
-      /* Cursor personalizado de 32x32 px */
       cursor: url('cursor.png') 16 16, auto;
+      /* tamaño base en ordenador (~10x10 cm ≈ 378px a 96dpi) */
+      width: 378px;
+      height: auto;
+      max-width: 90vw; /* en móvil no se sale de la pantalla */
+      max-height: 90vh; /* por si acaso en pantallas muy pequeñas */
     }
   </style>
 </head>
