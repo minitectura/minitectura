@@ -1,6 +1,21 @@
-<a href="mailto:hello@mini-tectura.com">
-  <img 
-    src="imgfondo.png" 
-    alt="" 
-    style="border:0; max-width:100%; height:auto; cursor:pointer;">
-</a>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Mini-tectura</title>
+  <style>
+    img.clickable {
+      border: 0;
+      max-width: 100%;
+      height: auto;
+      /* Cursor personalizado de 32x32 px */
+      cursor: url('cursor.png') 16 16, auto;
+    }
+  </style>
+</head>
+<body>
+  <a href="mailto:hello@mini-tectura.com">
+    <img src="imgfondo.png" alt="" class="clickable">
+  </a>
+</body>
+</html>
