@@ -16,8 +16,8 @@
     img.clickable {
       border: 0;
       cursor: url('cursor.png') 16 16, auto;
-      max-width: 70%;      /* reducido al 70% del ancho del viewport */
-      max-height: 70%;     /* reducido al 70% del alto del viewport */
+      max-width: 80%;      /* no más del 80% del ancho del viewport */
+      max-height: 80%;     /* no más del 80% del alto del viewport */
       width: auto;
       height: auto;
       transition: transform 0.3s ease;
@@ -31,12 +31,15 @@
 
     @media (max-width: 600px) {
       img.clickable {
-        max-width: 85%;      /* ocupa algo menos que el 90% en móviles */
-        max-height: 85%;     /* no demasiado alto en móviles */
+        max-width: 90%;      /* ocupa casi todo el ancho en móviles */
+        max-height: 90%;     /* no demasiado alto en móviles */
       }
     }
   </style>
 </head>
 <body>
   <a href="mailto:hello@mini-tectura.com">
-    <img src="imgfondo.pn
+    <img src="imgfondo.png" alt="Contacto minitectura" class="clickable">
+  </a>
+</body>
+</html>
