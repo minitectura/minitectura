@@ -38,16 +38,15 @@
       object-fit: cover;
       z-index: -1;
       display: none; /* ocultos por defecto */
+      background: black;
     }
 
-    /* Mostrar video desktop */
     @media (min-width: 769px) {
       video.desktop {
         display: block;
       }
     }
 
-    /* Mostrar video móvil */
     @media (max-width: 768px) {
       video.mobile {
         display: block;
@@ -56,16 +55,29 @@
   </style>
 </head>
 <body>
-  <video class="bg-video desktop" autoplay muted loop playsinline>
+  <!-- Video para escritorio -->
+  <video class="bg-video desktop" autoplay muted loop playsinline preload="auto" poster="poster-desktop.jpg">
     <source src="video-mini-desktop.mp4" type="video/mp4">
     Tu navegador no soporta video.
   </video>
 
-  <video class="bg-video mobile" autoplay muted loop playsinline>
+  <!-- Video para móvil -->
+  <video class="bg-video mobile" autoplay muted loop playsinline preload="auto" poster="poster-mobile.jpg">
     <source src="video-mini-mov.mp4" type="video/mp4">
     Tu navegador no soporta video.
   </video>
 
   <a href="mailto:hello@mini-tectura.com" class="fullscreen-link"></a>
+
+  <script>
+    // Forzar reproducción en algunos móviles
+    document.addEventListener('DOMContentLoaded', () => {
+      document.querySelectorAll('video').forEach(video => {
+        video.play().catch(() => {
+          console.log('Autoplay bloqueado, esperando interacción.');
+        });
+      });
+    });
+  </script>
 </body>
 </html>
