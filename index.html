@@ -16,8 +16,9 @@
     img.clickable {
       border: 0;
       cursor: url('cursor.png') 16 16, auto;
-      width: 80%;         /* se ajusta al 80% del ancho del viewport */
-      max-width: 800px;   /* límite máximo para pantallas muy grandes */
+      max-width: 80%;      /* no más del 80% del ancho del viewport */
+      max-height: 80%;     /* no más del 80% del alto del viewport */
+      width: auto;
       height: auto;
       transition: transform 0.3s ease;
       display: block;
@@ -30,8 +31,8 @@
 
     @media (max-width: 600px) {
       img.clickable {
-        width: 90%;        /* ocupa casi todo el ancho en móviles */
-        max-width: 280px;  /* límite máximo en móviles */
+        max-width: 90%;      /* ocupa casi todo el ancho en móviles */
+        max-height: 90%;     /* no demasiado alto en móviles */
       }
     }
   </style>
