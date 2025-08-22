@@ -4,41 +4,46 @@
   <meta charset="UTF-8">
   <title>Mini-tectura</title>
   <style>
-    body {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
+    html, body {
       margin: 0;
-      background: #fff;
+      padding: 0;
+      height: 100%;
+      width: 100%;
+      overflow: hidden;
+      background: black;
     }
 
-    img.clickable {
-      border: 0;
-      cursor: url('cursor.png') 16 16, auto;
-      width: 700px;       /* tamaño grande en escritorio */
-      max-width: 90vw;     /* se ajusta en móviles */
-      height: auto;
-      transition: transform 0.3s ease;
+    a.fullscreen-video {
       display: block;
-      margin: 0 auto;
+      height: 100%;
+      width: 100%;
+      cursor: url('cursor.png') 16 16, auto;
     }
 
-    img.clickable:hover {
-      transform: scale(1.02); /* pequeño efecto al pasar el cursor */
+    video {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      min-width: 100%;
+      min-height: 100%;
+      object-fit: cover;
     }
 
-    @media (max-width: 600px) {
-      img.clickable {
-        width: 90vw;       /* ocupa casi todo el ancho en móviles */
-        max-width: 350px;  /* no demasiado grande en móviles */
+    @media (max-width: 768px) {
+      video {
+        width: auto;
+        height: 100%;
       }
     }
   </style>
 </head>
 <body>
-  <a href="mailto:hello@mini-tectura.com">
-    <img src="imgfondo.png" alt="Contacto minitectura" class="clickable">
+  <a href="mailto:hello@mini-tectura.com" class="fullscreen-video">
+    <video autoplay muted loop playsinline>
+      <source src="video-mini.mp4" type="video/mp4">
+      Tu navegador no soporta video HTML5.
+    </video>
   </a>
 </body>
 </html>
