@@ -4,100 +4,41 @@
   <meta charset="UTF-8">
   <title>Mini-tectura</title>
   <style>
-    * {
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
       margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-    html, body {
-      height: 100%;
-      width: 100%;
-      overflow: hidden;
-      background: #000;
+      background: #fff;
     }
 
-    /* Link a pantalla completa */
-    a.fullscreen-link {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      display: block;
+    img.clickable {
+      border: 0;
       cursor: url('cursor.png') 16 16, auto;
-      z-index: 10;
+      width: 1000px;       /* tamaño grande en escritorio */
+      max-width: 90vw;     /* se ajusta en móviles */
+      height: auto;
+      transition: transform 0.3s ease;
+      display: block;
+      margin: 0 auto;
     }
 
-    /* Video ocupa toda la pantalla */
-    video.bg-video {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      z-index: -1;
-      display: none;
-      background: black;
+    img.clickable:hover {
+      transform: scale(1.02); /* pequeño efecto al pasar el cursor */
     }
 
-    /* PNG fallback */
-    img.fallback {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      z-index: -1;
-      display: none;
-    }
-
-    /* Mostrar video desktop en pantallas grandes */
-    @media (min-width: 769px) {
-      video.desktop {
-        display: block;
+    @media (max-width: 600px) {
+      img.clickable {
+        width: 90vw;       /* ocupa casi todo el ancho en móviles */
+        max-width: 350px;  /* no demasiado grande en móviles */
       }
     }
-
-    /* Mostrar video móvil en Android */
-    @media (max-width: 768px) {
-      video.mobile {
-        display: block;
-      }
-    }
-
   </style>
 </head>
 <body>
-
-  <!-- Video Desktop -->
-  <video class="bg-video desktop" autoplay muted loop playsinline preload="auto">
-    <source src="video-mini-desktop.mp4" type="video/mp4">
-    Tu navegador no soporta video.
-  </video>
-
-  <!-- Video móvil (Android) -->
-  <video class="bg-video mobile" autoplay muted loop playsinline preload="auto">
-    <source src="video-mini-mov.mp4" type="video/mp4">
-    Tu navegador no soporta video.
-  </video>
-
-  <!-- PNG fallback para iOS -->
-  <img src="imgfondo.png" class="fallback" alt="Fallback iOS">
-
-  <!-- Link a email -->
-  <a href="mailto:hello@mini-tectura.com" class="fullscreen-link"></a>
-
-  <script>
-    // Detectar iOS
-    const iOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
-
-    if(iOS){
-      // Ocultar videos y mostrar fallback
-      document.querySelectorAll('video').forEach(v => v.style.display = 'none');
-      document.querySelector('.fallback').style.display = 'block';
-    }
-  </script>
+  <a href="mailto:hello@mini-tectura.com">
+    <img src="imgfondo.png" alt="Contacto minitectura" class="clickable">
+  </a>
 </body>
 </html>
