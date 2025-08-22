@@ -13,11 +13,10 @@
       height: 100%;
       width: 100%;
       overflow: hidden;
-    }
-    body {
       background: #000;
     }
 
+    /* Link a pantalla completa */
     a.fullscreen-link {
       position: fixed;
       top: 0;
@@ -29,6 +28,7 @@
       z-index: 10;
     }
 
+    /* Video ocupa toda la pantalla */
     video.bg-video {
       position: fixed;
       top: 0;
@@ -37,47 +37,67 @@
       height: 100%;
       object-fit: cover;
       z-index: -1;
-      display: none; /* ocultos por defecto */
+      display: none;
       background: black;
     }
 
+    /* PNG fallback */
+    img.fallback {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: -1;
+      display: none;
+    }
+
+    /* Mostrar video desktop en pantallas grandes */
     @media (min-width: 769px) {
       video.desktop {
         display: block;
       }
     }
 
+    /* Mostrar video móvil en Android */
     @media (max-width: 768px) {
       video.mobile {
         display: block;
       }
     }
+
   </style>
 </head>
 <body>
-  <!-- Video para escritorio -->
-  <video class="bg-video desktop" autoplay muted loop playsinline preload="auto" poster="poster-desktop.jpg">
+
+  <!-- Video Desktop -->
+  <video class="bg-video desktop" autoplay muted loop playsinline preload="auto">
     <source src="video-mini-desktop.mp4" type="video/mp4">
     Tu navegador no soporta video.
   </video>
 
-  <!-- Video para móvil -->
-  <video class="bg-video mobile" autoplay muted loop playsinline preload="auto" poster="poster-mobile.jpg">
+  <!-- Video móvil (Android) -->
+  <video class="bg-video mobile" autoplay muted loop playsinline preload="auto">
     <source src="video-mini-mov.mp4" type="video/mp4">
     Tu navegador no soporta video.
   </video>
 
+  <!-- PNG fallback para iOS -->
+  <img src="overlay.png" class="fallback" alt="Fallback iOS">
+
+  <!-- Link a email -->
   <a href="mailto:hello@mini-tectura.com" class="fullscreen-link"></a>
 
   <script>
-    // Forzar reproducción en algunos móviles
-    document.addEventListener('DOMContentLoaded', () => {
-      document.querySelectorAll('video').forEach(video => {
-        video.play().catch(() => {
-          console.log('Autoplay bloqueado, esperando interacción.');
-        });
-      });
-    });
+    // Detectar iOS
+    const iOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+
+    if(iOS){
+      // Ocultar videos y mostrar fallback
+      document.querySelectorAll('video').forEach(v => v.style.display = 'none');
+      document.querySelector('.fallback').style.display = 'block';
+    }
   </script>
 </body>
 </html>
