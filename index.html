@@ -16,22 +16,22 @@
     img.clickable {
       border: 0;
       cursor: url('cursor.png') 16 16, auto;
-      max-width: 80%;      /* no más del 80% del ancho del viewport */
-      max-height: 80%;     /* no más del 80% del alto del viewport */
+      max-width: 60%;      /* no más del 60% del ancho del viewport en desktop */
+      max-height: 60%;     /* no más del 60% del alto del viewport */
       width: auto;
-      height: auto;
+      height: auto;        /* mantiene proporción */
       transition: transform 0.3s ease;
       display: block;
       margin: 0 auto;
     }
 
     img.clickable:hover {
-      transform: scale(1.02); /* pequeño efecto al pasar el cursor */
+      transform: scale(1.02);
     }
 
     @media (max-width: 600px) {
       img.clickable {
-        max-width: 90%;      /* ocupa casi todo el ancho en móviles */
+        max-width: 90%;      /* ocupa 90% del ancho en móviles */
         max-height: 90%;     /* no demasiado alto en móviles */
       }
     }
