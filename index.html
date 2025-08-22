@@ -16,7 +16,7 @@
     img.clickable {
       border: 0;
       cursor: url('cursor.png') 16 16, auto;
-      width: 25vw;       /* 25% del ancho de la pantalla */
+      width: 30vw;       /* Desktop: 30% del ancho de la pantalla */
       height: auto;       /* mantiene proporción */
       transition: transform 0.3s ease;
       display: block;
@@ -29,8 +29,8 @@
 
     @media (max-width: 600px) {
       img.clickable {
-        width: 90vw;       /* ocupa casi todo el ancho en móviles */
-        height: auto;
+        width: 45vw;       /* Móvil: 45% del ancho de la pantalla */
+        height: auto;      /* mantiene proporción */
       }
     }
   </style>
@@ -41,4 +41,3 @@
   </a>
 </body>
 </html>
-
