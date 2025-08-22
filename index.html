@@ -16,8 +16,8 @@
     img.clickable {
       border: 0;
       cursor: url('cursor.png') 16 16, auto;
-      width: 750px;       /* tamaño grande en escritorio */
-      max-width: 90vw;     /* se ajusta en móviles */
+      width: 800px;       /* 80% del tamaño anterior (1000px → 800px) */
+      max-width: 72vw;    /* proporcional al 80% del 90vw original */
       height: auto;
       transition: transform 0.3s ease;
       display: block;
@@ -30,8 +30,8 @@
 
     @media (max-width: 600px) {
       img.clickable {
-        width: 90vw;       /* ocupa casi todo el ancho en móviles */
-        max-width: 350px;  /* no demasiado grande en móviles */
+        width: 72vw;       /* 80% del ancho en móviles */
+        max-width: 280px;  /* proporcional al 80% del límite anterior (350px → 280px) */
       }
     }
   </style>
